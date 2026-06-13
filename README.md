@@ -136,21 +136,20 @@ This transforms paper collections into actionable research insights.
 
 The platform incorporates a RAG architecture to ground responses in real research literature.
 
-### ChromaDB Vector Store
-
-Used for:
-
-* Paper storage
-* Embedding generation
-* Semantic retrieval
-* Future conversational memory support
-
-### Benefits
-
-* Reduced hallucinations
-* Source-grounded outputs
-* Research traceability
-* Improved factual consistency
+```text
+┌───────────────────────┐  ┌───────────────────────┐
+│ ChromaDB Vector Store │  │       Benefits        │
+├───────────────────────┤  ├───────────────────────┤
+│ • Paper Storage       │  │ • Reduced             │
+│ • Embedding Generation│  │   Hallucinations      │
+│ • Semantic Retrieval  │  │ • Source-Grounded     │
+│ • Future Memory       │  │   Outputs             │
+│   Support             │  │ • Research            │
+│                       │  │   Traceability        │
+│                       │  │ • Improved Factual    │
+│                       │  │   Consistency         │
+└───────────────────────┘  └───────────────────────┘
+```
 
 ---
 
@@ -158,27 +157,30 @@ Used for:
 
 To improve workflow stability, the system includes:
 
-### Safe Execution Layer
+```text
+┌───────────────────────┐  ┌───────────────────────┐
+│ Safe Execution Layer  │  │ Workflow Persistence  │
+├───────────────────────┤  ├───────────────────────┤
+│ • Agent-Level Error   │  │ • SQLite              │
+│   Handling            │  │   Checkpointing       │
+│ • Retry Mechanisms    │  │ • LangGraph State     │
+│ • Graceful Failure    │  │   Recovery            │
+│   Recovery            │  │ • Session             │
+│                       │  │   Persistence         │
+└───────────────────────┘  └───────────────────────┘
+```
 
-* Agent-level error handling
-* Retry mechanisms
-* Graceful failure recovery
-
-### Workflow Persistence
-
-* SQLite checkpointing
-* LangGraph state recovery
-* Session persistence
-
-### Monitoring
-
-Real-time workflow progress tracking:
-
-* Search Agent Completed
-* Summary Agent Completed
-* Citation Agent Completed
-* Research Intelligence Completed
-* Report Generated
+```text
+┌───────────────────────────────────────────────┐
+│                  Monitoring                   │
+├───────────────────────────────────────────────┤
+│ ✓ Search Agent Completed                      │
+│ ✓ Summary Agent Completed                     │
+│ ✓ Citation Agent Completed                    │
+│ ✓ Research Intelligence Completed             │
+│ ✓ Report Generated                            │
+└───────────────────────────────────────────────┘
+```
 
 ---
 
@@ -186,21 +188,26 @@ Real-time workflow progress tracking:
 
 The web interface provides:
 
-### Agent Network Visualization
+```text
+┌───────────────────────┐  ┌───────────────────────┐
+│ Agent Network         │  │ Research Report       │
+│ Visualization         │  │ Viewer                │
+├───────────────────────┤  ├───────────────────────┤
+│ Tracks execution      │  │ Displays generated    │
+│ progress across all   │  │ research reports in a │
+│ agents.               │  │ readable format.      │
+└───────────────────────┘  └───────────────────────┘
+```
 
-Tracks execution progress across all agents.
-
-### Research Report Viewer
-
-Displays generated research reports in a readable format.
-
-### Source Explorer
-
-Presents retrieved academic papers used in report generation.
-
-### Live Workflow Updates
-
-Provides visibility into each stage of the research pipeline.
+```text
+┌───────────────────────┐  ┌───────────────────────┐
+│ Source Explorer       │  │ Live Workflow Updates │
+├───────────────────────┤  ├───────────────────────┤
+│ Presents retrieved    │  │ Provides visibility   │
+│ academic papers used  │  │ into each stage of    │
+│ in report generation. │  │ the research pipeline.│
+└───────────────────────┘  └───────────────────────┘
+```
 
 ---
 
