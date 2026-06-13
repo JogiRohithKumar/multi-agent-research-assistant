@@ -1,93 +1,321 @@
-This `README.md` is designed to highlight your engineering maturity, the complexity of your multi-agent architecture, and your ability to ship production-ready SaaS products.
+# Multi-Agent Research Intelligence Platform
 
-Copy the content below into your repository’s `README.md` file.
+An end-to-end AI-powered research automation platform that retrieves, analyzes, verifies, synthesizes, and generates structured research reports from academic literature using a multi-agent architecture.
 
----
-
-# Research Intelligence Assistant 🧠
-
-Research Intelligence Assistant is a production-grade, multi-agent AI research platform designed to automate the end-to-end academic research process. By utilizing a **LangGraph-orchestrated workflow**, the platform goes beyond simple RAG (Retrieval-Augmented Generation) by employing specialized agents to search, verify, summarize, and synthesize complex research data into actionable intelligence briefs.
+Built with FastAPI, LangGraph, Gemini, ChromaDB, React, and Tailwind CSS.
 
 ---
 
-## 🚀 Architecture Overview
+## Overview
 
-The platform leverages a modular, agent-based architecture where every stage of the research pipeline is managed by an autonomous node.
+Research workflows often require hours of manual effort to search papers, read abstracts, identify key findings, compare evidence, generate citations, and extract research gaps.
 
-```text
-[Frontend: React/Vite] ↔ [Backend: FastAPI] ↔ [LangGraph Orchestration]
-                                                       │
-         ┌──────────────────┬──────────────────────────┴───────────────┐
-         ▼                  ▼                                          ▼
-   [Search Agent]    [Summary Agent]   [Citation Agent]   [Intelligence Agent]
-         │                  │                  │                       │
-         └──────────────────┼──────────────────┼───────────────────────┘
-                            ▼
-                      [Report Agent] ──▶ [Final Research Brief]
+This platform automates the entire pipeline through a specialized multi-agent system where each agent performs a dedicated research task.
 
-```
+Instead of relying on a single LLM response, the system follows a structured workflow:
+
+Query Validation → Academic Search → Summarization → Citation Generation → Research Intelligence Analysis → Report Generation
+
+The result is a grounded research report generated from real academic sources rather than standalone LLM reasoning.
 
 ---
 
-## 🛠 Technology Stack
+## Key Features
 
-* **Orchestration:** LangGraph, LangChain
-* **Intelligence:** Google Gemini 2.5 Flash
-* **Backend:** Python, FastAPI
-* **Frontend:** React, Vite, Tailwind CSS, Axios
-* **Database:** ChromaDB (Vector Store), SQLite (Workflow Checkpointing)
-* **Deployment:** Vercel (Frontend), Render (Backend)
+### Multi-Agent Architecture
 
----
+The platform uses specialized AI agents coordinated through LangGraph.
 
-## 🤖 Multi-Agent Workflow
+#### Supervisor Agent
 
-The platform utilizes specialized agents to ensure high-fidelity research:
+* Validates incoming research queries
+* Controls workflow routing
+* Prevents invalid or low-quality searches
 
-1. **Supervisor Agent:** Validates query intent and determines the research route.
-2. **Query Rewriter:** Expands vague queries into multi-faceted search strings for higher retrieval relevance.
-3. **Search Agent:** Executes arXiv-integrated searches and filters for high-relevance academic papers.
-4. **Summary Agent:** Extracts executive summaries and key technical findings from raw paper abstracts.
-5. **Citation Agent:** Standardizes source attribution into APA format.
-6. **Research Intelligence Agent:** Performs cross-paper reasoning to identify **evidence strength**, **common/conflicting findings**, and **research gaps**.
-7. **Report Agent:** Synthesizes all agent outputs into a comprehensive, structured research report.
+#### Search Agent
 
----
+* Retrieves academic papers from arXiv
+* Filters relevant publications
+* Expands user queries using AI-powered query rewriting
 
-## 🌟 Key Engineering Highlights
+#### Summary Agent
 
-* **Resilient Agentic Workflow:** Implemented `safe_execute()` and `retry_execute()` patterns to harden the LangGraph against node failures.
-* **Production-Ready Security:** Configured secure cross-domain communication between Vercel and Render using Regex-validated CORS middleware.
-* **Stateful Orchestration:** Utilized SQLite-based checkpointing to ensure research sessions are persistent and recoverable.
-* **Real-time Interaction:** Built a streaming API architecture that provides live visualization of the Agent Network progress in the UI.
+* Extracts key findings from research papers
+* Generates concise research summaries
+* Produces structured outputs for downstream agents
 
----
+#### Citation Agent
 
-## 🗺 Roadmap
+* Generates formatted academic citations
+* Maintains source attribution throughout the workflow
 
-* [ ] **V2:** User Authentication, persistent Research History, and project workspaces.
-* [ ] **V3:** Integration of Semantic Scholar, PubMed, and OpenAlex for multi-source breadth.
-* [ ] **V4:** Collaborative research features for team-based workspaces and export capabilities (PDF/DOCX).
+#### Research Intelligence Agent
 
----
+* Performs cross-paper analysis
+* Identifies common findings
+* Detects conflicting evidence
+* Extracts research gaps
+* Suggests future research directions
+* Calculates evidence confidence
 
-## 📈 Portfolio Maturity
+#### Report Agent
 
-* **Engineering:** 8.5/10
-* **Research Capability:** 8.0/10
-* **SaaS Readiness:** 6.0/10
+* Combines outputs from all agents
+* Produces a structured research intelligence report
 
 ---
 
-## 💡 Get Started
+## Research Intelligence Engine
 
-*To run this project locally, clone the repository and configure your environment variables for Gemini API and ChromaDB.*
+Unlike traditional RAG systems that stop at retrieval and summarization, this platform performs higher-level research synthesis.
 
-```bash
-# Backend setup
-pip install -r requirements.txt
-uvicorn main:app --reload
+The Intelligence Agent extracts:
 
-```
+* Common Findings
+* Conflicting Findings
+* Evidence Strength
+* Confidence Scores
+* Research Gaps
+* Missing Research Areas
+* Future Directions
+* Unanswered Questions
 
-*This project represents an end-to-end implementation of an autonomous agent network capable of replacing hours of manual research with seconds of intelligent synthesis.*
+This transforms paper collections into actionable research insights.
+
+---
+
+## System Architecture
+
+Frontend (React + Tailwind)
+
+↓
+
+FastAPI Backend
+
+↓
+
+LangGraph Orchestrator
+
+↓
+
+Supervisor Agent
+
+↓
+
+Search Agent
+
+↓
+
+ChromaDB Vector Store
+
+↓
+
+Summary Agent
+
+↓
+
+Citation Agent
+
+↓
+
+Research Intelligence Agent
+
+↓
+
+Report Agent
+
+↓
+
+Structured Research Report
+
+---
+
+## Technology Stack
+
+### Frontend
+
+* React
+* Vite
+* Tailwind CSS
+* Axios
+
+### Backend
+
+* Python
+* FastAPI
+* LangGraph
+* LangChain Components
+
+### AI Layer
+
+* Google Gemini 2.5 Flash
+
+### Data Layer
+
+* ChromaDB
+* SQLite
+
+### Deployment
+
+* Vercel
+* Render
+
+---
+
+## Retrieval-Augmented Generation (RAG)
+
+The platform incorporates a RAG architecture to ground responses in real research literature.
+
+### ChromaDB Vector Store
+
+Used for:
+
+* Paper storage
+* Embedding generation
+* Semantic retrieval
+* Future conversational memory support
+
+### Benefits
+
+* Reduced hallucinations
+* Source-grounded outputs
+* Research traceability
+* Improved factual consistency
+
+---
+
+## Reliability Engineering
+
+To improve workflow stability, the system includes:
+
+### Safe Execution Layer
+
+* Agent-level error handling
+* Retry mechanisms
+* Graceful failure recovery
+
+### Workflow Persistence
+
+* SQLite checkpointing
+* LangGraph state recovery
+* Session persistence
+
+### Monitoring
+
+Real-time workflow progress tracking:
+
+* Search Agent Completed
+* Summary Agent Completed
+* Citation Agent Completed
+* Research Intelligence Completed
+* Report Generated
+
+---
+
+## Frontend Dashboard
+
+The web interface provides:
+
+### Agent Network Visualization
+
+Tracks execution progress across all agents.
+
+### Research Report Viewer
+
+Displays generated research reports in a readable format.
+
+### Source Explorer
+
+Presents retrieved academic papers used in report generation.
+
+### Live Workflow Updates
+
+Provides visibility into each stage of the research pipeline.
+
+---
+
+## Example Workflow
+
+User Query:
+
+"Large Language Models in Education"
+
+Workflow:
+
+1. Supervisor validates query
+2. Search Agent retrieves relevant papers
+3. Summary Agent extracts findings
+4. Citation Agent generates references
+5. Intelligence Agent performs cross-paper reasoning
+6. Report Agent produces final report
+
+Output:
+
+* Executive Summary
+* Key Findings
+* Research Gaps
+* Future Research Directions
+* References
+
+---
+
+## Deployment
+
+Frontend:
+
+* Vercel
+
+Backend:
+
+* FastAPI Cloud Deployment
+
+The application is accessible through a publicly deployed web interface.
+
+---
+
+## Engineering Highlights
+
+* Designed and implemented a multi-agent research workflow using LangGraph
+* Built a Retrieval-Augmented Generation pipeline grounded in academic literature
+* Developed an AI-powered query rewriting system for improved paper retrieval
+* Implemented vector search using ChromaDB
+* Created a research intelligence engine for cross-paper synthesis
+* Integrated structured citation generation
+* Built workflow monitoring and progress tracking
+* Implemented session persistence and checkpoint recovery
+* Developed a full-stack production deployment using React and FastAPI
+
+---
+
+## Future Improvements
+
+* Semantic Scholar Integration
+* PubMed Integration
+* OpenAlex Integration
+* PDF Export
+* DOCX Export
+* User Authentication
+* Research History Dashboard
+* WebSocket-Based Real-Time Streaming
+* Multi-User Workspaces
+* Collaborative Research Projects
+
+---
+
+## Why This Project Matters
+
+Most AI research tools focus on answering questions.
+
+This platform focuses on producing evidence-based research intelligence.
+
+By combining retrieval, summarization, verification, citation generation, and gap analysis into a single workflow, the system assists researchers, students, analysts, and engineers in accelerating literature review and research synthesis processes.
+
+---
+
+## Author
+
+Rohith Kumar Jogi
+
+LinkedIn: [https://www.linkedin.com/in/your-linkedin-profile/](https://www.linkedin.com/in/rohith-kumar-jogi-747a782b8/)
+
+Focused on AI Engineering, Machine Learning Systems, Multi-Agent Architectures, Retrieval-Augmented Generation, and Research Automation.
