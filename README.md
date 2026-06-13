@@ -1,5 +1,7 @@
 # Multi-Agent Research Intelligence Platform
 
+🚀 **Live Demo:** https://multi-agent-research-assistant-hmcd5iedk.vercel.app/
+
 An end-to-end AI-powered research automation platform that retrieves, analyzes, verifies, synthesizes, and generates structured research reports from academic literature using a multi-agent architecture.
 
 Built with FastAPI, LangGraph, Gemini, ChromaDB, React, and Tailwind CSS.
@@ -26,42 +28,14 @@ The result is a grounded research report generated from real academic sources ra
 
 The platform uses specialized AI agents coordinated through LangGraph.
 
-#### Supervisor Agent
-
-* Validates incoming research queries
-* Controls workflow routing
-* Prevents invalid or low-quality searches
-
-#### Search Agent
-
-* Retrieves academic papers from arXiv
-* Filters relevant publications
-* Expands user queries using AI-powered query rewriting
-
-#### Summary Agent
-
-* Extracts key findings from research papers
-* Generates concise research summaries
-* Produces structured outputs for downstream agents
-
-#### Citation Agent
-
-* Generates formatted academic citations
-* Maintains source attribution throughout the workflow
-
-#### Research Intelligence Agent
-
-* Performs cross-paper analysis
-* Identifies common findings
-* Detects conflicting evidence
-* Extracts research gaps
-* Suggests future research directions
-* Calculates evidence confidence
-
-#### Report Agent
-
-* Combines outputs from all agents
-* Produces a structured research intelligence report
+| Agent                           | Responsibilities                                                                                                                                                                                           |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Supervisor Agent**            | • Validates incoming research queries<br>• Controls workflow routing<br>• Prevents invalid or low-quality searches                                                                                         |
+| **Search Agent**                | • Retrieves academic papers from arXiv<br>• Filters relevant publications<br>• Expands user queries using AI-powered query rewriting                                                                       |
+| **Summary Agent**               | • Extracts key findings from research papers<br>• Generates concise research summaries<br>• Produces structured outputs for downstream agents                                                              |
+| **Citation Agent**              | • Generates formatted academic citations<br>• Maintains source attribution throughout the workflow                                                                                                         |
+| **Research Intelligence Agent** | • Performs cross-paper analysis<br>• Identifies common findings<br>• Detects conflicting evidence<br>• Extracts research gaps<br>• Suggests future research directions<br>• Calculates evidence confidence |
+| **Report Agent**                | • Combines outputs from all agents<br>• Produces a structured research intelligence report                                                                                                                 |
 
 ---
 
