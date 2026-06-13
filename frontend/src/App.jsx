@@ -5,7 +5,7 @@ import AgentPanel from './components/AgentPanel';
 import ReportPanel from './components/ReportPanel';
 import PapersPanel from './components/PapersPanel';
 
-const BACKEND_URL = 'http://localhost:8000';
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 const API_KEY = 'research-assistant-demo-key';
 
 export default function App() {
