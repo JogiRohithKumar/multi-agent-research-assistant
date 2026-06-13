@@ -8,17 +8,17 @@ app = FastAPI(
     title="Multi-Agent Research Assistant"
 )
 
-# 2. Add the CORS configuration right here
+# Added explicit Vercel URLs to prevent FastAPI startup crashes
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://multi-agent-research-assistant-rho.vercel.app", # Your main Vercel production site
-        "http://localhost:5173", # Your local laptop testing site
-        "*" # This wildcard allows all Vercel preview links to connect safely
+        "https://multi-agent-research-assistant-rho.vercel.app", # Your main production URL
+        "https://multi-agent-research-assistant-pfdlmzwg0.vercel.app", # The specific preview URL from your console error
+        "http://localhost:5173", # For local testing
     ],
     allow_credentials=True,
-    allow_methods=["*"], # Allows all methods including POST and GET
-    allow_headers=["*"], # Critical: Allows your custom 'x-api-key' header
+    allow_methods=["*"], 
+    allow_headers=["*"], 
 )
 
 app.include_router(router)
