@@ -86,79 +86,49 @@ This transforms paper collections into actionable research insights.
 
 ## System Architecture
 
-Frontend (React + Tailwind)
-
-↓
-
-FastAPI Backend
-
-↓
-
-LangGraph Orchestrator
-
-↓
-
-Supervisor Agent
-
-↓
-
-Search Agent
-
-↓
-
-ChromaDB Vector Store
-
-↓
-
-Summary Agent
-
-↓
-
-Citation Agent
-
-↓
-
-Research Intelligence Agent
-
-↓
-
-Report Agent
-
-↓
-
-Structured Research Report
+```text
+┌──────────────────────┐
+│  Frontend (React)    │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│    FastAPI Backend   │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ LangGraph Workflow   │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│   Supervisor Agent   │
+└──────────┬───────────┘
+           │
+           ▼
+┌─────────────┐   ┌─────────────┐   ┌─────────────┐   ┌─────────────────────┐   ┌─────────────┐
+│ Search      │ → │ Summary     │ → │ Citation    │ → │ Research Intelligence│ → │ Report      │
+│ Agent       │   │ Agent       │   │ Agent       │   │ Agent               │   │ Agent       │
+└──────┬──────┘   └─────────────┘   └─────────────┘   └─────────────────────┘   └──────┬──────┘
+       │                                                                                │
+       ▼                                                                                ▼
+┌──────────────────────┐                                                ┌──────────────────────────┐
+│ ChromaDB Vector Store│                                                │ Structured Research Report│
+└──────────────────────┘                                                └──────────────────────────┘
+```
 
 ---
 
 ## Technology Stack
 
-### Frontend
-
-* React
-* Vite
-* Tailwind CSS
-* Axios
-
-### Backend
-
-* Python
-* FastAPI
-* LangGraph
-* LangChain Components
-
-### AI Layer
-
-* Google Gemini 2.5 Flash
-
-### Data Layer
-
-* ChromaDB
-* SQLite
-
-### Deployment
-
-* Vercel
-* Render
+| Layer      | Technologies                          |
+| ---------- | ------------------------------------- |
+| Frontend   | React, Vite, Tailwind CSS, Axios      |
+| Backend    | Python, FastAPI, LangGraph, LangChain |
+| AI Layer   | Google Gemini 2.5 Flash               |
+| Data Layer | ChromaDB, SQLite                      |
+| Deployment | Vercel, Render                        |
 
 ---
 
@@ -316,6 +286,6 @@ By combining retrieval, summarization, verification, citation generation, and ga
 
 Rohith Kumar Jogi
 
-LinkedIn: [https://www.linkedin.com/in/your-linkedin-profile/](https://www.linkedin.com/in/rohith-kumar-jogi-747a782b8/)
+LinkedIn: https://www.linkedin.com/in/your-linkedin-profile/
 
 Focused on AI Engineering, Machine Learning Systems, Multi-Agent Architectures, Retrieval-Augmented Generation, and Research Automation.
